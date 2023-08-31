@@ -21,15 +21,7 @@ const Navbar = () => {
           <li>
             <a href="home"> Web Series</a>
           </li>
-          <li>
-            <a href="home"> News</a>
-          </li>
-          <li>
-            <a href="home"> Live TV</a>
-          </li>
-          <li>
-            <a href="home"> Music</a>
-          </li>
+
           <li>
             <a href="home"> More</a>
           </li>
@@ -38,7 +30,7 @@ const Navbar = () => {
       <div className="nav__right">
         <div className="search">
           <span className="search__icon">
-            <i class="fa-solid fa-magnifying-glass"></i>
+            <i className="fa-solid fa-magnifying-glass"></i>
           </span>
           <input
             className="search__bar"
@@ -46,7 +38,7 @@ const Navbar = () => {
             type="search"
           />
           <span className="mic">
-            <i class="fa-solid fa-microphone"></i>
+            <i className="fa-solid fa-microphone"></i>
           </span>
         </div>
 
@@ -55,10 +47,10 @@ const Navbar = () => {
         </Link>
 
         <button className="btn__buy">
-          <i class="fa-solid fa-crown"></i> BUY PLAN
+          <i className="fa-solid fa-crown"></i> BUY PLAN
         </button>
         <button className="btn__menu">
-          <i class="fa-solid fa-bars"></i>
+          <i className="fa-solid fa-bars"></i>
         </button>
       </div>
     </div>
