@@ -1,12 +1,10 @@
 import "../style/navbar.css";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <div className="nav_bar">
       <div className="nav__left">
-        <img
-          src="https://www.zee5.com/images/ZEE5_logo.svg?ver=3.12.13"
-          alt="zee5"
-        />
+        <img src="https://www.zee5.com/images/ZEE5_logo.svg" alt="zee5" />
         <ul>
           <li>
             <a href="home"> Home</a>
@@ -42,17 +40,26 @@ const Navbar = () => {
           <span className="search__icon">
             <i class="fa-solid fa-magnifying-glass"></i>
           </span>
-          <input className="search__bar" type="search" />
+          <input
+            className="search__bar"
+            placeholder="Search for Movies, Show, Channels etc."
+            type="search"
+          />
           <span className="mic">
             <i class="fa-solid fa-microphone"></i>
           </span>
         </div>
 
-        <button className="btn__login">Login</button>
+        <Link to="/login">
+          <button className="btn__login">Login </button>
+        </Link>
+
         <button className="btn__buy">
-          <i class="fa-solid fa-crown"></i>Buy Plan
+          <i class="fa-solid fa-crown"></i> BUY PLAN
         </button>
-        <button className="btn__menu">Menu</button>
+        <button className="btn__menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
       </div>
     </div>
   );
