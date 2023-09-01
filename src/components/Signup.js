@@ -29,6 +29,7 @@ export default function Signup() {
     console.log(userData, data);
   };
   return (
+    <div className="wrapper">
     <div className="signup">
       <h1>Create a new account</h1>
       <p>
@@ -60,6 +61,14 @@ export default function Signup() {
         placeholder="Enter password"
         className="password"
       ></input>
+        <input
+        type="password"
+        name="password"
+        value={user.repassword}
+        onChange={handleChange}
+        placeholder="Re-enter password"
+        className="password"
+      ></input> 
 
       <div className="terms">
         <input type="checkbox" className="checkbox"></input>
@@ -79,6 +88,7 @@ export default function Signup() {
       <p>
         Already registered? <Link to="/login"> Login</Link>
       </p>
+    </div>
     </div>
   );
 }

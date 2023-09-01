@@ -25,13 +25,13 @@ export default function App() {
     //console.log(data);
   };
 
-  return (
-    <div className="App">
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+  return (<div className="app">
+    <Routes>
+      <Route path="/" element={<Homepage/>}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/signup" element={<Signup/>}/>
       </Routes>
     </div>
+ 
   );
 }

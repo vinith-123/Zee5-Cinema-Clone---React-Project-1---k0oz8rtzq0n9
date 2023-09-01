@@ -31,6 +31,7 @@ export default function Login() {
     console.log(data);
   };
   return (
+    <div className="wrapper">
     <div className="login">
       <h1>Login to ZEE5</h1>
       <p>
@@ -46,6 +47,7 @@ export default function Login() {
         placeholder="Enter your Email"
         className="email"
       ></input>
+      
       <input
         type="text"
         name="password"
@@ -61,6 +63,7 @@ export default function Login() {
       <p>
         New to ZEE5 ? <Link to="/signup"> Register</Link>
       </p>
+    </div>
     </div>
   );
 }
