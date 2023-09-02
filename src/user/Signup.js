@@ -1,15 +1,27 @@
 import React, { useState } from "react";
 import "../style/signup.css";
 import { Link } from "react-router-dom";
+import { useFormik } from "formik";
+import { signUpSchema } from "./Schema";
 export default function Signup() {
-  const [user, setUser] = useState({ name: "", email: "", password: "" });
+  
+  const user ={ name: "", email: "", password: "", terms:false};
+  const {values,touched ,errors,handleBlur,handleChange,handleReset,handleSubmit}=useFormik({
+    initialValues:user,
+    validationSchema:signUpSchema,
+    onSubmit:(values)=>{
+      console.log(values);
+    }
+  })
+  console.log(errors)
+
   let name, value;
-  const handleChange = (e) => {
+/*   const handleChange = (e) => {
     name = e.target.name;
     value = e.target.value;
     setUser({ ...user, [name]: value });
     console.log(JSON.stringify(user));
-  };
+  }; */
   const register = async () => {
     const userData = { ...user, appType: "ott" };
     const res = await fetch(
@@ -30,48 +42,71 @@ export default function Signup() {
   };
   return (
     <div className="wrapper">
-    <div className="signup">
+    <form onSubmit={handleSubmit} className="signup">
       <h1>Create a new account</h1>
       <p>
         Create an account to continue enjoying uninterrupted video and
         personalised experience
       </p>
-
+     <div className="form-input">
+     { errors.name && touched.name? <span className="form-errors">{errors.name}</span>:null}
       <input
         type="text"
         name="name"
-        value={user.name}
+        value={values.name}
         onChange={handleChange}
+        onBlur={handleBlur}
+
         placeholder="Enter your name"
         className="name"
       ></input>
+     </div>
+     <div className="form-input">
+     { errors.email && touched.email? <span className="form-errors">{errors.email}</span>:null}
       <input
         type="email"
         name="email"
-        value={user.email}
+        value={values.email}
         onChange={handleChange}
+        onBlur={handleBlur}
         placeholder="Enter your Email"
         className="email"
       ></input>
+       </div>
+           <div className="form-input">
+  { errors.password && touched.password? <span className="form-errors">{errors.password}</span>:null}
       <input
         type="password"
         name="password"
-        value={user.password}
+        value={values.password}
         onChange={handleChange}
+        onBlur={handleBlur}
         placeholder="Enter password"
         className="password"
       ></input>
+       </div>
+           <div className="form-input">
+      { errors.Cpassword && touched.Cpassword? <span className="form-errors">{errors.Cpassword}</span>:null}
         <input
         type="password"
-        name="password"
-        value={user.repassword}
+        name="Cpassword"
+        value={values.Cpassword}
         onChange={handleChange}
+        onBlur={handleBlur}
         placeholder="Re-enter password"
         className="password"
       ></input> 
+     </div>
+     <div className="form-input">
+     { errors.terms && touched.terms? <span className="form-errors">{errors.terms}</span>:null}
 
       <div className="terms">
-        <input type="checkbox" className="checkbox"></input>
+        <input type="checkbox"
+        name="terms"
+        
+         value={values.terms}
+         onChange={handleChange}
+         onBlur={handleBlur} className="checkbox"></input>
         <label htmlFor="checkbox">
           <p className="checkbox__p">
             By proceeding you agree to our
@@ -81,14 +116,15 @@ export default function Signup() {
           </p>
         </label>
       </div>
+      </div>
 
-      <button onClick={register} className="btn__signup active">
+      <button  className="btn__signup active">
         Create account
       </button>
       <p>
         Already registered? <Link to="/login"> Login</Link>
       </p>
-    </div>
+    </form>
     </div>
   );
 }

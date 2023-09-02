@@ -1,8 +1,8 @@
 import "./styles.css";
 import Navbar from "./components/Navbar";
 import { Route, Routes } from "react-router-dom";
-import Signup from "./components/Signup";
-import Login from "./components/Login";
+import Signup from "./user/Signup";
+import Login from "./user/Login"
 import Homepage from "./components/Homepage";
 import { useEffect, useState } from "react";
 import Content from "./components/Content";
